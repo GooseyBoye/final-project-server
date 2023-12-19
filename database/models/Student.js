@@ -15,6 +15,20 @@ const Student = db.define("student", {
   lastname: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  email:{
+    type: Sequelize.STRING,
+    defaultValue:'No Email Given',  //weird error without this
+    allowNull: false,
+  },
+  imageURL: {
+    type: Sequelize.STRING,
+    allowNull: true,
+    defaultValue: 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+  },
+  gpa:{
+    type: Sequelize.DECIMAL,
+    allowNull: true,
   }
 });
 

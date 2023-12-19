@@ -20,6 +20,11 @@ const Campus = db.define("campus", {
 
   description: {
     type: Sequelize.STRING,
+  },
+  imageURL: {
+    type: Sequelize.STRING,
+    allowNull: true,
+    defaultValue: 'https://www.elmhurst.edu/wp-content/uploads/2020/07/elmhurst-university-gates-v3-hero-image.jpg'
   }
 });
 

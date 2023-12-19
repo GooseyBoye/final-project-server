@@ -14,21 +14,21 @@ const { Student, Campus } = require('../database/models');
 const ash = require('express-async-handler');
 
 /* GET ALL CAMPUSES: async/await using "try-catch" */
-// router.get('/', async (req, res, next) => {
-//   try {
-//     let campuses = await Campus.findAll({include: [Student]});
-//     res.status(200).json(campuses);
-//   } 
-//   catch(err) {
-//     next(err);
-//   }
-// });
+ router.get('/', async (req, res, next) => {
+   try {
+     let campuses = await Campus.findAll({include: [Student]});
+     res.status(200).json(campuses);
+   } 
+   catch(err) {
+     next(err);
+   }
+ });
 
-/* GET ALL CAMPUSES */
-router.get('/', ash(async(req, res) => {
-  let campuses = await Campus.findAll({include: [Student]});  // Get all campuses and their associated students
-  res.status(200).json(campuses);  // Status code 200 OK - request succeeded
-}));
+// /* GET ALL CAMPUSES */
+// router.get('/', ash(async(req, res) => {
+//   let campuses = await Campus.findAll({include: [Student]});  // Get all campuses and their associated students
+//   res.status(200).json(campuses);  // Status code 200 OK - request succeeded
+// }));
 
 /* GET CAMPUS BY ID */
 router.get('/:id', ash(async(req, res) => {
